@@ -10,12 +10,14 @@
  * I have not tested the effect of this reset on this code yet (as by
  * 10/10/2016).
  * 
+ * Revised by Clovis Fritzen (clovisf AT gmail DOT com ) in 07/19/2017.
  * Revised by Clovis Fritzen (clovisf AT gmail DOT com ) in 10/10/2016.
  * Written by Clovis Fritzen (clovisf AT gmail DOT com ) in 10/21/2014.
- * http://embedded-clovis.blogspot.ca/
+ * http://www.FritzenMaker.com
  * http://www.fritzenlab.com.br
  * http://www.twitter.com/clovisf  
  * http://www.twitter.com/fritzenlab
+ * http://www.twitter.com/TheFritzenMaker
  * 
  * BSD license, all text above must be included in any redistribution
  ****************************************************/
@@ -106,7 +108,7 @@ void loop() {
   
   
   // The DELAY time is adjusted in the constant below >> 
-  if (timet - previousTime < 9999){ // 1 million microsencods= 1 second delay
+  if (timet - previousTime < 999990){ // 1 million microsencods= 1 second delay
     /* I have actually used 0.999990 seconds, in a trial to compensate the time that
        this IF function takes to be executed. this is really a point that
        need improvement in my code */   
@@ -116,22 +118,16 @@ void loop() {
     enterFunction= true;
   }
 
-  if (timet - previousTime2 < 499999){ // 1 million microsencods= 1 second delay
-    /* I have actually used 0.999990 seconds, in a trial to compensate the time that
-       this IF function takes to be executed. this is really a point that
-       need improvement in my code */   
-    enterFunction2= false;
+  if (timet - previousTime2 < 499990){ // 500,000 microsencods= 0.5 seconds delay
+      enterFunction2= false;
   } 
   else {
     enterFunction2= true;
   }
   
     // The DELAY time is adjusted in the constant below >> 
-  if (timet - previousTime3 < 29999){ // 1 million microsencods= 1 second delay
-    /* I have actually used 0.999990 seconds, in a trial to compensate the time that
-       this IF function takes to be executed. this is really a point that
-       need improvement in my code */   
-    enterFunction3= false;
+  if (timet - previousTime3 < 29990){ // 30,000 microsencods= 30 milisecond delay
+      enterFunction3= false;
   } 
   else {
     enterFunction3= true;
