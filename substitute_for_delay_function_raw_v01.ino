@@ -18,9 +18,10 @@
  ****************************************************/
 
 // Variables used on this code
-unsigned long time;
+unsigned long now;
 unsigned long previousTime;
 boolean enterFunction= true;
+unsigned long period= 1000000;
 //-----------------------
 
 
@@ -30,9 +31,9 @@ void setup() {
 }
 
 void loop() {
-  time = micros();
+  now = micros();
   if (enterFunction == true){
-    previousTime= time;
+    previousTime+= period;
     Serial.println(previousTime); // for debugging
 
     // Start your code below 
@@ -46,7 +47,7 @@ void loop() {
   }
   
   // The DELAY time is adjusted in the constant below >> 
-  if (time - previousTime < 999990){ // 1 million microsencods= 1 second delay
+  if (now - previousTime >= period){ // 1 million microsencods= 1 second delay
     /* I have actually used 0.999990 seconds, in a trial to compensate the time that
        this IF function takes to be executed. this is really a point that
        need improvement in my code */   
